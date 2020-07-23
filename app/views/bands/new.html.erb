@@ -1,16 +1,5 @@
 <h2>Create a band!</h2>
 
-<form action="<%= bands_url %>" method="post">
-  <input
-    type="hidden"
-    name="authenticity_token"
-    value="form_authenticity_token">
+<%= render 'shared/band_form', band: @band  %>
 
-  <label for="name">Name</label>
-  <input type="text" name="band[name]" id="name">
-
-  <br><br>
-
-  <input type="submit" name="Submit!">
-
-</form>
+<%= button_to 'Cancel', bands_url, method: :get %>

@@ -4,6 +4,20 @@ class BandsController < ApplicationController
     render :index
   end
 
+  def show
+    @band = Band.find_by(id: params[:id])
+    if @band
+      render :show
+    else
+      redirect_to bands_url
+    end
+  end
+
+  def new
+    @band = Band.new
+    render :new
+  end
+
   def create
     @band = Band.new(band_params)
     if @band.save!
@@ -11,11 +25,6 @@ class BandsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def new
-    @band = Band.new
-    render :new
   end
 
   def edit
@@ -27,14 +36,15 @@ class BandsController < ApplicationController
     end
   end
 
-  def show
+  def update
     @band = Band.find_by(id: params[:id])
-    if @band
-      render :show
+    if @band.update(band_params)
+      redirect_to band_url(@band)
     else
-      redirect_to bands_url
+      render :edit
     end
   end
+
 
   def destroy
     band = Band.find_by(id: params[:id])
