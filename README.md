@@ -1,6 +1,6 @@
 # Music App
 
-###Instructions from AppAcademy:
+### Instructions from AppAcademy:
 
 [Live Demo!](https://aamusicapp.herokuapp.com/)
 
