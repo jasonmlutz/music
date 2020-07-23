@@ -1,3 +1,7 @@
 <h2>Sign in!</h2>
 
-<%= render 'form' %>
+<%= render 'shared/form', source: :session, action: :new %>
+
+<br><br>
+
+New here? <%= button_to 'Register', new_user_url, method: :get %>

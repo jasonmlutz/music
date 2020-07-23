@@ -1,8 +1,15 @@
-<form action="<%= session_url %>" method="post">
+<% action_url = ( source == :session ) ? session_url : users_url %>
+<% message = ( source == :session) ? 'Sign in' : 'Register' %>
+
+<form action="<%= action_url %>" method="post" >
   <input
     type="hidden"
     name="authenticity_token"
     value="form_authenticity_token">
+
+  <% if :action == :edit %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
 
   <label for="email">Email</label>
   <input type="text" name="user[email]" id="email">
@@ -10,22 +17,5 @@
   <label for="password">Password</label>
   <input type="password" name="user[password]" id="password">
 
-  <input type="submit" value="Sign in">
+  <input type="submit" value="<%= message %>">
 </form>
-
-<!--
-  <form action="<%=# users_url %>" method="post">
-    <input
-      type="hidden"
-      name="authenticity_token"
-      value="form_authenticity_token">
-
-    <label for="email">Email</label>
-    <input type="text" name="user[email]" id="email">
-
-    <label for="password">Password</label>
-    <input type="password" name="user[password]" id="password">
-
-    <input type="submit" value="Register">
-  </form>
--->
