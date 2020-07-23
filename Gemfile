@@ -34,6 +34,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'letter_opener'
   gem 'activerecord-import'
   gem 'annotate'
   gem 'pry-rails'
