@@ -8,18 +8,11 @@
 
 User.destroy_all
 Band.destroy_all
+Album.destroy_all
 
 ApplicationRecord.connection.reset_pk_sequence!('users')
 ApplicationRecord.connection.reset_pk_sequence!('bands')
-
-Band.create(
-  [
-    {name: 'Nirvana'},
-    {name: 'Pearl Jam'},
-    {name: 'Smashing Pumpkins'},
-    {name: 'Green Day'}
-  ]
-)
+ApplicationRecord.connection.reset_pk_sequence!('albums')
 
 User.create(
   [
@@ -27,5 +20,22 @@ User.create(
     {email: 'paul', password: 'beatles'},
     {email: 'ringo', password: 'beatles'},
     {email: 'george', password: 'beatles'}
+  ]
+)
+
+Band.create(
+  [
+    {name: 'Nirvana'},
+    {name: 'Smashing Pumpkins'},
+    {name: 'Pearl Jam'},
+    {name: 'Green Day'}
+  ]
+)
+
+Album.create(
+  [
+    {title: 'Nevermind', year: 1991, band: 1, studio: true},
+    {title: 'Nirvana MTV Unplugged in New York', year: 1994, band: 1, studio: false},
+    {title: 'Mellon Collie and the Infinite Sadness', year: 1995, band: 2, studio: true}
   ]
 )
