@@ -23,6 +23,8 @@
 <h3>No tracks logged.</h3>
 <% end %>
 <br>
+<%= button_to 'Add track entry', new_album_track_url(@album), method: :get %>
+<br>
 <%= button_to 'Edit album details', edit_album_url, method: :get %>
 <br>
 <%= button_to 'DELETE', album_url(@album), method: :delete, data: {confirm: "Are you sure you want to delete this album?" } %>
