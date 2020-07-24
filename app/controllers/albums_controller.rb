@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  # before_action :redirect_unless_signed_in
+  before_action :redirect_unless_signed_in
 
   def new
     @album = Album.new

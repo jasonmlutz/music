@@ -1,5 +1,5 @@
 class BandsController < ApplicationController
-  # before_action :redirect_unless_signed_in
+  before_action :redirect_unless_signed_in
 
   def index
     @bands = Band.all
