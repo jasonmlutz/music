@@ -9,10 +9,12 @@
 User.destroy_all
 Band.destroy_all
 Album.destroy_all
+Track.destroy_all
 
 ApplicationRecord.connection.reset_pk_sequence!('users')
 ApplicationRecord.connection.reset_pk_sequence!('bands')
 ApplicationRecord.connection.reset_pk_sequence!('albums')
+ApplicationRecord.connection.reset_pk_sequence!('tracks')
 
 User.create(
   [
