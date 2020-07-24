@@ -34,8 +34,8 @@ Band.create(
 
 Album.create(
   [
-    {title: 'Nevermind', year: 1991, band: 1, studio: true},
-    {title: 'Nirvana MTV Unplugged in New York', year: 1994, band: 1, studio: false},
-    {title: 'Mellon Collie and the Infinite Sadness', year: 1995, band: 2, studio: true}
+    {title: 'Nevermind', year: 1991, band_id: 1, studio: true},
+    {title: 'Nirvana MTV Unplugged in New York', year: 1994, band_id: 1, studio: false},
+    {title: 'Mellon Collie and the Infinite Sadness', year: 1995, band_id: 2, studio: true}
   ]
 )
