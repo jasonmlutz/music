@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     session[:session_token] = nil
   end
 
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :logout!
 
   def current_user
     return nil if session[:session_token].nil?
