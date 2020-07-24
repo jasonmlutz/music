@@ -38,10 +38,21 @@ class AlbumsController < ApplicationController
 
   def update
     @album = Album.find_by(id: params[:id])
-    if @album.update(album_params)
+    if @album && @album.update(album_params)
       redirect_to album_url(@album)
     else
       render :edit
+    end
+  end
+
+  def destroy
+    @album = Album.find_by(id: params[:id])
+    if @album
+      @album.destroy
+      @band = Band.find_by(id: @album.band_id)
+      redirect_to band_url(@band)
+    else
+      redirect_to bands_url
     end
   end
 

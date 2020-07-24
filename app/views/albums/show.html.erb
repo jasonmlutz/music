@@ -8,3 +8,6 @@
   <li><b>Year: </b> <%= @album.year %></li>
   <li><%= @album.studio ? 'Studio' : 'Live' %> recording</li>
 </ul>
+
+<br><br>
+<%= button_to 'DELETE', album_url(@album), method: :delete, data: {confirm: "Are you sure you want to delete this album?" } %>
