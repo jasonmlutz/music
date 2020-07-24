@@ -28,12 +28,20 @@
   <br>
 
   <label>
-    <input type="radio" name="album[studio]" value="true">
+    <input
+      type="radio"
+      name="album[studio]"
+      value=<%= true %>
+      <%= 'checked' if @album.studio %>>
     Studio recording
   </label>
   <br>
   <label>
-    <input type="radio" name="album[studio]" value="false">
+    <input
+      type="radio"
+      name="album[studio]"
+      value=<%= false %>
+      <%= 'checked' unless @album.studio %>>
     Live recording
   </label>
 
