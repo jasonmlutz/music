@@ -13,7 +13,10 @@
 <h3>Track Listing</h3>
 <ul>
   <% @album.tracks.each do |track| %>
-  <li><%= "#{track.ord}. " %><%= link_to track.title, track_url(track), method: :get %></li>
+  <li><%= "#{track.ord}. " %><%= link_to track.title, track_url(track), method: :get %>
+    <%= button_to 'Edit track details', edit_track_url(track), method: :get%>
+    <%= button_to 'DELETE', track_url(track), method: :delete, data: {confirm: "Are you sure you want to delete this track?" } %>
+  </li>
   <% end %>
 </ul>
 <% else %>
