@@ -1,5 +1,5 @@
 <h2>Edit the entry for <%= @album.title %></h2>
 
-<%= render 'shared/album_form', bands: @bands, album_artist: @album_artist, album: @album %>
+<%= render 'form', bands: @bands, album_artist: @album_artist, album: @album %>
 
 <%= button_to 'Cancel', album_url(@album), method: :get %>
