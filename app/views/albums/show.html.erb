@@ -8,6 +8,17 @@
   <li><b>Year: </b> <%= @album.year %></li>
   <li><%= @album.studio ? 'Studio' : 'Live' %> recording</li>
 </ul>
+<%=  %>
+<% if @album.tracks.exists? %>
+<h3>Track Listing</h3>
+<ul>
+  <% @album.tracks.each do |track| %>
+  <li><%= "#{track.ord}. #{track.title}" %></li>
+  <% end %>
+</ul>
+<% else %>
+<h3>No tracks logged.</h3>
+<% end %>
 <br>
 <%= button_to 'Edit album details', edit_album_url, method: :get %>
 <br>
