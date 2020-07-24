@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  before_action :redirect_unless_signed_in
+
   def new
     @album = Album.new
     @album_artist = Band.find_by(id: params[:band_id])

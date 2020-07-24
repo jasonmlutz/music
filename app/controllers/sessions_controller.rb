@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :redirect_if_signed_in
+
   def new
     render :new
   end

@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logout!
-    @current_user = nil
+    current_user.try(:reset_session_token!)
     session[:session_token] = nil
   end
 
@@ -21,5 +21,15 @@ class ApplicationController < ActionController::Base
     return nil if session[:session_token].nil?
 
     @current_user ||= User.find_by(session_token: session[:session_token])
+  end
+
+  private
+
+  def redirect_unless_signed_in
+    redirect_to new_user_url if current_user.nil?
+  end
+
+  def redirect_if_signed_in
+    redirect_to bands_url unless current_user.nil?
   end
 end
