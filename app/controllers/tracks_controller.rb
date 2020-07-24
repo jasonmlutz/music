@@ -1,6 +1,6 @@
 class TracksController < ApplicationController
-  before_action :redirect_unless_signed_in
-  
+  # before_action :redirect_unless_signed_in
+
   def new
     @track = Track.new
     @track_album = Album.find_by(id: params[:album_id])
