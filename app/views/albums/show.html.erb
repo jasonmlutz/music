@@ -8,6 +8,9 @@
   <li><b>Year: </b> <%= @album.year %></li>
   <li><%= @album.studio ? 'Studio' : 'Live' %> recording</li>
 </ul>
-
-<br><br>
+<br>
+<%= button_to 'Edit album details', edit_album_url, method: :get %>
+<br>
 <%= button_to 'DELETE', album_url(@album), method: :delete, data: {confirm: "Are you sure you want to delete this album?" } %>
+<br>
+<%= button_to 'Return to bands index', bands_url, method: :get %>
