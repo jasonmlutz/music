@@ -40,4 +40,28 @@ Album.create(
     {title: 'Nirvana MTV Unplugged in New York', year: 1994, band_id: 1, studio: false},
     {title: 'Mellon Collie and the Infinite Sadness', year: 1995, band_id: 2, studio: true}
   ]
+)#  id         :bigint           not null, primary key
+#  album_id   :integer          not null
+#  title      :string           not null
+#  ord        :integer          not null
+#  lyrics     :text
+#  regular    :boolean          default(TRUE)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+
+Track.create(
+  [
+    {album_id: 1, title: 'Smells Like Teen Spirit', ord: 1},
+    {album_id: 1, title: 'In Bloom', ord: 2},
+    {album_id: 1, title: 'Come as You Are', ord: 3},
+    {album_id: 1, title: 'Breed', ord: 4},
+    {album_id: 1, title: 'Lithium', ord: 5},
+    {album_id: 1, title: 'Polly', ord: 6},
+    {album_id: 1, title: 'Territorial Passage', ord: 7},
+    {album_id: 1, title: 'Drain You', ord: 8},
+    {album_id: 1, title: 'Lounge Act', ord: 9},
+    {album_id: 1, title: 'Stay Away', ord: 10},
+    {album_id: 1, title: 'On a Plain', ord: 11},
+    {album_id: 1, title: 'Something in the Way', ord: 12}
+  ]
 )
