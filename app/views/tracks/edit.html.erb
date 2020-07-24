@@ -2,4 +2,4 @@
 
 <%= render 'form', track: @track, track_album: @track_album, albums: @albums %>
 
-<%= button_to 'Cancel', album_url(@track_album), method: :get %>
+<%= button_to 'Cancel', track_url(@track), method: :get %>

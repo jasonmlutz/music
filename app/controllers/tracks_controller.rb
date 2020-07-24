@@ -28,8 +28,12 @@ class TracksController < ApplicationController
   end
 
   def show
-    track = Track.find_by(id: params[:id])
-    render json: track
+    @track = Track.find_by(id: params[:id])
+    if @track
+      render :show
+    else
+      redirect_to bands_url
+    end
   end
 
   def update
@@ -44,7 +48,14 @@ class TracksController < ApplicationController
   end
 
   def destroy
-
+    @track = Track.find_by(id: params[:id])
+    if @track
+      @track.destroy
+      @album = Album.find_by(id: @track.album_id)
+      redirect_to album_url(@album)
+    else
+      redirect_to bands_url
+    end
   end
 
   private

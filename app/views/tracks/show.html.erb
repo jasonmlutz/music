@@ -1,0 +1,25 @@
+<% album = Album.find_by(id: @track.album_id) %>
+<% band = Band.find_by(id: album.band_id) %>
+
+<h2><%= @track.title %></h2>
+
+<h3>Details</h3>
+
+<ul>
+<li><b>Band:</b> <%= link_to band.name, band_url(band), method: :get %></li>
+<li><b>Album:</b> <%= link_to album.title, album_url(album), method: :get %></li>
+<li><b>Track number:</b> <%= @track.ord %></li>
+<% if @track.bonus %>
+<li>bonus track</li>
+<% end %>
+</ul>
+
+<% if @track.lyrics %>
+<b>Lyrics:</b>
+<p><%= @track.lyrics %></p>
+<% else %>
+<p>No lyrics logged.</p>
+<% end %>
+
+<br><br>
+<%= button_to 'Edit track details', edit_track_url(@track), method: :get%>
