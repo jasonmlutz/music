@@ -7,12 +7,12 @@
 #  title      :string           not null
 #  ord        :integer          not null
 #  lyrics     :text
-#  regular    :boolean          default(TRUE)
+#  bonus      :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 class Track < ApplicationRecord
-  validates :album_id, :title, :ord, :regular, null: false
+  validates :album_id, :title, :ord, :bonus, null: false
 
   belongs_to :album
 end
