@@ -7,7 +7,7 @@
 #  title      :string           not null
 #  ord        :integer          not null
 #  lyrics     :text
-#  regular    :boolean          default(TRUE)
+#  bonus      :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

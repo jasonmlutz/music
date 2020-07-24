@@ -1,0 +1,5 @@
+<h2>Create a new track entry on the album <%= @track_album.title %></h2>
+
+<%= render 'form', track: @track, track_album: @track_album, albums: @albums %>
+
+<%= button_to 'Cancel', album_url(@track_album), method: :get %>
