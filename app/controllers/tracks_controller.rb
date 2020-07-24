@@ -1,6 +1,8 @@
 class TracksController < ApplicationController
   def new
     @track = Track.new
+    @track_album = Album.find_by(id: params[:album_id])
+    @albums = Album.all
     render :new
   end
 
