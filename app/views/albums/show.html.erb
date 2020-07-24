@@ -1,0 +1,10 @@
+<% band = @album.band %>
+<h2><%= @album.title %></h2>
+
+<h3>Details</h3>
+
+<ul>
+  <li><b>Band: </b> <%= link_to band.name, band_url(band), method: :get %></li>
+  <li><b>Year: </b> <%= @album.year %></li>
+  <li><%= @album.studio ? 'Studio' : 'Live' %> recording</li>
+</ul>

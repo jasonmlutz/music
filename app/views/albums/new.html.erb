@@ -1,0 +1,6 @@
+
+<h2>Create a new album by <%= @album_artist.name %></h2>
+
+<%= render 'shared/album_form', bands: @bands, album_artist: @album_artist, album: @album %>
+
+<%= button_to 'Cancel', band_url(@album_artist), method: :get %>
