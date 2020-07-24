@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   end
   resources :tracks, only: [:create, :edit, :show, :update, :destroy]
 
-  root 'bands#index'
+  root 'users#new'
 end
