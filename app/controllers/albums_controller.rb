@@ -7,7 +7,6 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    fail
     @album = Album.new(album_params)
     if @album.save!
       redirect_to album_url(@album)
