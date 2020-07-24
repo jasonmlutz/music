@@ -13,7 +13,7 @@
 <h3>Track Listing</h3>
 <ul>
   <% @album.tracks.each do |track| %>
-  <li><%= "#{track.ord}. #{track.title}" %></li>
+  <li><%= "#{track.ord}. " %><%= link_to track.title, track_url(track), method: :get %></li>
   <% end %>
 </ul>
 <% else %>
