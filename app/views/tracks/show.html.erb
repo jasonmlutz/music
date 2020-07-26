@@ -21,6 +21,16 @@
 <p>No lyrics logged.</p>
 <% end %>
 
+<% if @track.notes.exists? %>
+<ul>
+    <% @track.notes.order(:created_at).each do |note| %>
+    <%= render 'notes/note', note: note %>
+    <% end %>
+</ul>
+<% else %>
+<p>No notes logged.</p>
+<% end %>
+
 <h3>Add a note:</h3>
 <%= render 'notes/form', note: Note.new, track: @track %>
 
