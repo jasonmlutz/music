@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   resources :tracks, only: [:create, :edit, :show, :update, :destroy]
 
-  resources :notes, only: [:create, :update, :destroy]
+  resources :notes, only: [:create, :destroy]
 
   root 'users#new'
 end
