@@ -10,4 +10,10 @@
 #  updated_at :datetime         not null
 #
 class Note < ApplicationRecord
+  validates :author_id, :track_id, :body, null: false
+
+  belongs_to :author,
+    class_name: :User
+
+  belongs_to :track
 end

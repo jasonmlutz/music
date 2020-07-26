@@ -15,4 +15,9 @@ class Track < ApplicationRecord
   validates :album_id, :title, :ord, :bonus, null: false
 
   belongs_to :album
+
+  has_many :notes,
+    class_name: :Note,
+    foreign_key: :track_id,
+    dependent: :destroy
 end
