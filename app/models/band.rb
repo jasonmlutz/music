@@ -9,6 +9,7 @@
 #
 class Band < ApplicationRecord
   validates :name, presence: true
+  validates :name, length: { minimum: 1 }
 
   has_many :albums,
     dependent: :destroy
