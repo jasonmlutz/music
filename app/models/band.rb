@@ -14,5 +14,6 @@ class Band < ApplicationRecord
     dependent: :destroy
 
   has_many :tracks,
-    through: :albums
+    through: :albums,
+    dependent: :destroy
 end
