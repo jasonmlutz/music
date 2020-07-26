@@ -11,7 +11,7 @@ class TracksController < ApplicationController
   def create
     @track = Track.new(track_params)
     @track.bonus = false unless track_params[:bonus]
-    if @track.save!
+    if @track.save
       redirect_to track_url(@track)
     else
       render :new
