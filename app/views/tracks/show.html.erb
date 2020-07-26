@@ -21,6 +21,9 @@
 <p>No lyrics logged.</p>
 <% end %>
 
+<h3>Add a note:</h3>
+<%= render 'notes/form', note: Note.new, track: @track %>
+
 <br><br>
 <%= button_to 'Edit track details', edit_track_url(@track), method: :get%>
 <br>
