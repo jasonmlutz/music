@@ -11,6 +11,7 @@
 #
 class Note < ApplicationRecord
   validates :author_id, :track_id, :body, null: false
+  validates :body, length: { minimum: 10 }, allow_nil: false
 
   belongs_to :author,
     class_name: :User
