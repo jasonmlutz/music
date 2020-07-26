@@ -16,7 +16,7 @@
 
 <% if @track.lyrics %>
 <b>Lyrics:</b>
-<p><%= @track.lyrics %></p>
+<pre><%= ugly_lyrics(@track.lyrics) %></pre>
 <% else %>
 <p>No lyrics logged.</p>
 <% end %>
