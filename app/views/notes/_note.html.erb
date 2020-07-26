@@ -1,3 +1,8 @@
 <% email = User.find(note.author_id).email %>
 
-<li><%= note.body %> (<%= email %>)</li>
+<li><%= note.body %> (<%= email %>)
+
+<% if current_user.id == note.author_id %>
+<%= button_to 'DELETE', note_url(note), method: :delete, data: {confirm: "Are you sure you want to delete this track?" } %>
+<% end %>
+</li>
