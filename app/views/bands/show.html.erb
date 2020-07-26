@@ -13,6 +13,7 @@
 <% else %>
 <p>No albums logged.</p>
 <% end %>
+<%= render 'shared/errors' %>
 <%= button_to 'Add an album', new_band_album_url(@band), method: :get %>
 <br>
 <%= button_to 'Return to bands index', bands_url, method: :get %>

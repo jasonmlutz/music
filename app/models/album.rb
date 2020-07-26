@@ -11,7 +11,8 @@
 #  updated_at :datetime         not null
 #
 class Album < ApplicationRecord
-  validates :title, :year, :band, null: false
+  validates :band, null: false
+  validates :year, :title, length: { minimum: 1 }, allow_nil: false
 
   belongs_to :band
 

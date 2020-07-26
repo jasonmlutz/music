@@ -13,6 +13,7 @@ class AlbumsController < ApplicationController
     if @album.save
       redirect_to album_url(@album)
     else
+      flash[:errors] = @album.errors.full_messages
       redirect_to band_url(Band.find_by(id: @album.band_id))
     end
   end
