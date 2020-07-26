@@ -1,5 +1,7 @@
 <h2>Edit</h2>
 
+<%= render 'shared/errors' %>
+
 <%= render 'form', band: @band  %>
 
 <%= button_to 'Cancel', band_url(@band), method: :get %>

@@ -44,6 +44,9 @@ class AlbumsController < ApplicationController
     if @album && @album.update(album_params)
       redirect_to album_url(@album)
     else
+      flash.now[:errors] = @album.errors.full_messages
+      @album_artist = Band.find_by(id: @album.band_id)
+      @bands = Band.all
       render :edit
     end
   end
