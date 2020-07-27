@@ -14,7 +14,10 @@ class TracksController < ApplicationController
     if @track.save
       redirect_to track_url(@track)
     else
-      render :new
+      @track_album = Album.find_by(id: params[:track][:album_id])
+      @albums = Album.all
+      flash[:errors] = @track.errors.full_messages
+      redirect_to new_album_track_url(@track_album)
     end
   end
 
@@ -25,6 +28,7 @@ class TracksController < ApplicationController
       @albums = Album.all
       render :edit
     else
+      flash[:errors] = ['Unable to edit -- track entry does not exist.']
       redirect_to bands_url
     end
   end
@@ -42,9 +46,15 @@ class TracksController < ApplicationController
     @track = Track.find_by(id: params[:id])
     if @track
       @track.bonus = false unless track_params[:bonus]
-      redirect_to track_url(@track) if @track.update(track_params)
+      if @track.update(track_params)
+        redirect_to track_url(@track)
+      else
+        flash[:errors] = @track.errors.full_messages
+        redirect_to edit_track_url(@track)
+      end
     else
-      render :edit
+      flash[:errors] = ['Unable to edit -- track entry does not exist.']
+      redirect_to bands_url
     end
 
   end

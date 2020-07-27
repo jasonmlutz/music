@@ -1,5 +1,5 @@
 <h2>Edit track information for <%= @track.title %></h2>
 
 <%= render 'form', track: @track, track_album: @track_album, albums: @albums %>
-
+<%= render 'shared/errors' %>
 <%= button_to 'Cancel', track_url(@track), method: :get %>

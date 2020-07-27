@@ -2,4 +2,6 @@
 
 <%= render 'form', track: @track, track_album: @track_album, albums: @albums %>
 
+<%= render 'shared/errors' %>
+
 <%= button_to 'Cancel', album_url(@track_album), method: :get %>

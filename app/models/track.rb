@@ -12,7 +12,8 @@
 #  updated_at :datetime         not null
 #
 class Track < ApplicationRecord
-  validates :album_id, :title, :ord, :bonus, null: false
+  validates :album_id, :title, presence: true
+  validates :ord, presence: { message: "Track number cannot be blank" }
 
   belongs_to :album
 
