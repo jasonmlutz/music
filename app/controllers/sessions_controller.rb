@@ -12,8 +12,8 @@ class SessionsController < ApplicationController
     )
 
     if @user.nil?
-      flash.now[:errors] = ['Invalid email and/or password']
-      render :new
+      flash[:errors] = ['Invalid email and/or password']
+      redirect_to new_session_url
     else
       @user.reset_session_token!
       login!(@user)
