@@ -44,6 +44,7 @@ class BandsController < ApplicationController
     if @band.update(band_params)
       redirect_to band_url(@band)
     else
+      flash.now[:errors] = @band.errors.full_messages
       render :edit
     end
   end
@@ -53,9 +54,9 @@ class BandsController < ApplicationController
     band = Band.find_by(id: params[:id])
     if band
       band.destroy
-      render json: "DELETED #{band.name}"
+      #render json: "DELETED #{band.name}"
     else
-      render json: 'no such record; no band deleted'
+      redirect_to bands_url
     end
   end
 
