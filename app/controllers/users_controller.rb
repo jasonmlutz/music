@@ -7,9 +7,13 @@ class UsersController < ApplicationController
       @activation_token = SecureRandom.urlsafe_base64
       @user.activation_token_digest = BCrypt::Password.create(@activation_token)
       @user.save!
-      login!(@user)
-      flash[:errors] = ["activation token: #{@activation_token}"]
-      redirect_to user_url(@user)
+      msg = NewUserMailer.verification_email(@user, @activation_token)
+      msg.deliver_now
+      flash[:errors] = ["We've send you an email! Please check and verify your account!"]
+      redirect_to new_session_url 
+      # login!(@user)
+      # flash[:errors] = ["activation token: #{@activation_token}"]
+      # redirect_to user_url(@user)
     else
       flash[:errors] = @user.errors.full_messages
       redirect_to new_user_url

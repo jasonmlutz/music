@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<% url = "localhost:3000/users/activate?user[email]=#{@user.email}&user[activation_token]=#{@activation_token}" %>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Music App!</h1>
+    <p>
+      You have successfully registered!<br />
+    </p>
+    <p>
+      To verify and activate your account, just follow this link: <%= link_to 'ACTIVATE', url, method: :get %>.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
