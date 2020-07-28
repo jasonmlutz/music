@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      @activation_token = SecureRandom.urlsafe_base64
+      @user.activation_token_digest = BCrypt::Password.create(@activation_token)
+      @user.save!
       login!(@user)
+      flash[:errors] = ["activation token: #{@activation_token}"]
       redirect_to user_url(@user)
     else
       flash[:errors] = @user.errors.full_messages
