@@ -46,7 +46,7 @@ class User < ApplicationRecord
 
   def self.find_by_activation_token(email, activation_token)
     user = User.find_by(email: email)
-    user.nil? || !user.is_activation_token?(activation_token) ? nil : user
+    (user.nil? || !user.is_activation_token?(activation_token)) ? nil : user
   end
 
   def self.find_by_credentials(email, password)
@@ -54,8 +54,9 @@ class User < ApplicationRecord
     user.nil? || !user.is_password?(password) ? nil : user
   end
 
-  def activate!(user)
-    user.activated = true
+  def activate!
+    self.activated = true
+    self.save!
   end
 
   private

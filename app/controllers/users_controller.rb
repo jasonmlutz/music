@@ -29,7 +29,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def activate
+    user = User.find_by_activation_token(activation_params[:email], activation_params[:activation_token])
+    if user
+      user.activate!
+      flash[:errors] = ["Your account has been activated! Please sign in."]
+      redirect_to new_session_url
+    else
+      flash[:errors] = ["Invalid activation credentials; please try again!"]
+      redirect_to new_user_url
+    end
+  end
+
   private
+  def activation_params
+    params.require(:user).permit(:email, :activation_token)
+  end
 
   def user_params
     params.require(:user).permit(:email, :password)
