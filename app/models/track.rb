@@ -13,7 +13,7 @@
 #
 class Track < ApplicationRecord
   validates :album_id, :title, presence: true
-  validates :ord, presence: { message: "Track number cannot be blank" }
+  validates :ord, presence: { message: "(track number) cannot be blank" }
 
   belongs_to :album
 
