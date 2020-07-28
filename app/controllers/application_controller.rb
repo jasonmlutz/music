@@ -15,12 +15,16 @@ class ApplicationController < ActionController::Base
     session[:session_token] = nil
   end
 
-  helper_method :current_user, :logged_in?, :logout!
+  helper_method :current_user, :logged_in?, :logout!, :current_user_is_admin?
 
   def current_user
     return nil if session[:session_token].nil?
 
     @current_user ||= User.find_by(session_token: session[:session_token])
+  end
+
+  def current_user_is_admin?
+    current_user.admin
   end
 
   private

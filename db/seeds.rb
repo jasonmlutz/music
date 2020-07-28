@@ -21,7 +21,8 @@ User.create(
     {email: 'john', password: 'beatles'},
     {email: 'paul', password: 'beatles'},
     {email: 'ringo', password: 'beatles'},
-    {email: 'george', password: 'beatles'}
+    {email: 'george', password: 'beatles'},
+    {email: 'jason', password: 'zeppelin', admin: true, activated: true}
   ]
 )
 
