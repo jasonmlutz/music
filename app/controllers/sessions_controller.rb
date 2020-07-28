@@ -14,6 +14,9 @@ class SessionsController < ApplicationController
     if @user.nil?
       flash[:errors] = ['Invalid email and/or password']
       redirect_to new_session_url
+    elsif !@user.activated
+      flash[:errors] = ['Please verify your account to continue.']
+      redirect_to new_session_url
     else
       @user.reset_session_token!
       login!(@user)
