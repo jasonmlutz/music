@@ -40,9 +40,22 @@ class User < ApplicationRecord
     BCrypt::Password.new(password_digest).is_password?(password)
   end
 
+  def is_activation_token?(activation_token)
+    BCrypt::Password.new(activation_token_digest).is_password?(activation_token)
+  end
+
+  def self.find_by_activation_token(email, activation_token)
+    user = User.find_by(email: email)
+    user.nil? || !user.is_activation_token?(activation_token) ? nil : user
+  end
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     user.nil? || !user.is_password?(password) ? nil : user
+  end
+
+  def activate!(user)
+    user.activated = true
   end
 
   private
