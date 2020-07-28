@@ -10,4 +10,6 @@
 
 <%= render 'shared/errors' %>
 
+<% if current_user_is_admin? %>
 <%= button_to 'Create band', new_band_url, method: :get %>
+<% end %>

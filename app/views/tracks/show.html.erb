@@ -36,8 +36,10 @@
 <%= render 'shared/errors' %>
 
 <br><br>
+<% if current_user_is_admin? %>
 <%= button_to 'Edit track details', edit_track_url(@track), method: :get%>
 <br>
 <%= button_to 'DELETE', track_url(@track), method: :delete, data: {confirm: "Are you sure you want to delete this track?" } %>
 <br>
+<% end %>
 <%= button_to 'Return to album', album_url(album), method: :get %>
