@@ -1,4 +1,7 @@
 class NotesController < ApplicationController
+  before_action :admin_or_note_owner, only: [:destroy]
+
+
   def create
     @note = Note.new(note_params)
     @note.author_id = current_user.id

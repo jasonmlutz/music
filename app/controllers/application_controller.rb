@@ -28,6 +28,20 @@ class ApplicationController < ActionController::Base
   end
 
   private
+  def admin_or_note_owner
+    note = Note.find_by(id: params[:id])
+    if current_user.nil? || !current_user_is_admin? || (current_user.id != note.author_id)
+      flash[:errors] = ["Access denied -- request requires admin status or note author."]
+      redirect_to bands_url
+    end
+  end
+
+  def admin_only
+    if current_user.nil? || !current_user_is_admin?
+      flash[:errors] = ["Access denied -- request requires admin status."]
+      redirect_to bands_url
+    end
+  end
 
   def redirect_unless_signed_in
     redirect_to new_user_url if current_user.nil?
