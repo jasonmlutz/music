@@ -1,0 +1,13 @@
+<h2>Users index</h2>
+
+<ul>
+  <% @users.each do |user| %>
+  <li><%= user.email %>
+    <% if user.admin? %>
+    <%= '(admin)' %>
+    <% else %>
+    <%= button_to 'make admin', promote_user_url(user), method: :get %>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
