@@ -39,7 +39,6 @@ group :development do
   gem 'annotate'
   gem 'letter_opener'
   gem 'activerecord-import'
-  gem 'annotate'
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -53,8 +52,14 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+  gem 'factory_bot_rails', :require => false
+  gem 'faker'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'shoulda-matchers'
+  gem 'rspec-rails'
   gem 'selenium-webdriver'
+  gem 'rails_helper'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
