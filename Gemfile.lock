@@ -274,10 +274,10 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
   rails_helper
-  rspec-rails
+  rspec-rails (>= 3.9.0)
   sass-rails (>= 6)
   selenium-webdriver
-  shoulda-matchers
+  shoulda-matchers (~> 4.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

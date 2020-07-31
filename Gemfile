@@ -36,6 +36,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rspec-rails', ">= 3.9.0"
   gem 'annotate'
   gem 'letter_opener'
   gem 'activerecord-import'
@@ -56,8 +57,7 @@ group :test do
   gem 'faker'
   gem 'capybara'
   gem 'launchy'
-  gem 'shoulda-matchers'
-  gem 'rspec-rails'
+  gem 'shoulda-matchers', '~> 4.0'
   gem 'selenium-webdriver'
   gem 'rails_helper'
   # Easy installation and use of web drivers to run system tests with browsers
