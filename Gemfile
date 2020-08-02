@@ -52,6 +52,7 @@ group :development do
 end
 
 group :test do
+  gem 'factory_bot'
   # Adds support for Capybara system testing and selenium driver
   gem 'factory_bot_rails', :require => false
   gem 'faker'

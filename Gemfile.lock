@@ -263,6 +263,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara
+  factory_bot
   factory_bot_rails
   faker
   jbuilder (~> 2.7)
